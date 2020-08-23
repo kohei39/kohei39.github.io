@@ -1,6 +1,17 @@
 
+const routerBase = process.env.DEPLOY_ENV === 'GH_PAGES'
+? {
+    router: {
+      base: '/nuxt_prj/'
+    }
+  }
+: {}
+
 export default {
   mode: 'spa',
+  router: {
+    base: '/nuxt_prj/'
+  },
   /*
   ** Headers of the page
   */
@@ -69,5 +80,7 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  ...routerBase
 }
+
